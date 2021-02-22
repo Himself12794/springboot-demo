@@ -33,7 +33,7 @@ jobs:
     - name: ls -a via ssh
       uses: garygrossgarten/github-action-ssh@release
       with:
-        command: ls -a
+        command: mv deploy/*.jar spring.jar; sudo systemctl restart spring.service
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
